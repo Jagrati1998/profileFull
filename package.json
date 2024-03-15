@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "concurrently": "^8.2.1"
+  },
+  "scripts": {
+    "client": "cd client && npm start",
+    "backend": "cd backend && npm start",
+    "install_client": "cd client && npm i",
+    "install_backend": "cd backend && npm i",
+    "i": "concurrently \"npm run install_client\" \"npm run install_backend\"",
+    "install": "concurrently \"npm run install_client\" \"npm run install_backend\"",
+    "start": "concurrently \"npm run client\" \"npm run backend\"",
+    "build": "concurrently \"cd client && npm run build\" \"npm run backend\"",
+    "prod": "concurrently \"cd client && npm run build\" \"npm run backend\""
+  },
+  "devDependencies": {
+    "prettier": "3.0.3"
+  }
+}
