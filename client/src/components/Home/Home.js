@@ -8,12 +8,17 @@ import axios from "axios";
 
 function Home() {
   const [userDetail, setUserDetail] = useState({});
+  const [profile, setProfile] = useState([])
+  const [connectInfo,setConnectInfo]=useState({})
   const fetchData = () => {
     axios
       .get("http://localhost:3001/api")
       .then((response) => {
-        console.log("this is response data",response.data)
+       
         setUserDetail(response.data[0]);
+        setProfile(response.data[0].slice)
+        setConnectInfo(response.data[0].Connect)
+        
       })
       .catch((error) => {});
   };
@@ -39,11 +44,11 @@ function Home() {
 
               <h1 className="heading-name">
                 I'M
-                <strong className="main-name"> {userDetail.name}</strong>
+                <strong className="main-name"> {userDetail &&userDetail.profile_name}</strong>
               </h1>
 
               <div style={{ padding: 50, textAlign: "left" }}>
-                <Type />
+                <Type profile={profile}/>
               </div>
             </Col>
 
@@ -58,7 +63,7 @@ function Home() {
           </Row>
         </Container>
       </Container>
-      <Home2 />
+      <Home2 userDetail={userDetail &&userDetail} connectInfo={ connectInfo &&connectInfo}/>
     </section>
   );
 }

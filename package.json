@@ -5,11 +5,13 @@
   "scripts": {
     "client": "cd client && npm start",
     "backend": "cd backend && npm start",
+    "cms":"cd cms && npm start",
     "install_client": "cd client && npm i",
     "install_backend": "cd backend && npm i",
-    "i": "concurrently \"npm run install_client\" \"npm run install_backend\"",
-    "install": "concurrently \"npm run install_client\" \"npm run install_backend\"",
-    "start": "concurrently \"npm run client\" \"npm run backend\"",
+    "install_cms":"cd cms && npm i",
+    "i": "concurrently \"npm run install_client\" \"npm run install_backend\"  \"npm run install_cms\"",
+    "install": "concurrently \"npm run install_client\" \"npm run install_backend\" \"npm run install_cms\"",
+    "start": "concurrently \"npm run client\" \"npm run backend\" \"npm run cms\"",
     "build": "concurrently \"cd client && npm run build\" \"npm run backend\"",
     "prod": "concurrently \"cd client && npm run build\" \"npm run backend\""
   },

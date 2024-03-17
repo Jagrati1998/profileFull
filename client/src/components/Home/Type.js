@@ -1,16 +1,14 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 
-function Type() {
+function Type(props) {
+  const array=props.profile.map((p)=>p.skill)
+  console.log("this is profile array",array)
   return (
     <Typewriter
       options={{
-        strings: [
-          "Software Developer",
-          "Freelancer",
-          "MERN Stack Developer",
-          "Open Source Contributor",
-        ],
+        strings: array,
+
         autoStart: true,
         loop: true,
         deleteSpeed: 50,

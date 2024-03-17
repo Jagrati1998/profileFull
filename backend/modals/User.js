@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
    
-    name: {
+  profile_name: {
         type: String,
         required: true,
-        unique: true, // This enforces uniqueness
+        
       },
    
 }, {strict:false, minimize: false});
